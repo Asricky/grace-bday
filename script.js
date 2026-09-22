@@ -1,37 +1,37 @@
 'use strict';
 
-// Personalisation: isi src dengan foto Grace untuk mengganti ilustrasi sementara.
+// Personalisation: foto, cerita perjalanan, dan ucapan untuk Grace.
 const CONFIG = {
   photos: [
-    { src: '', art: 'daisy', caption: 'Little Grace energy', color: '#e8ebd9' },
-    { src: '', art: 'sun', caption: 'A pocket of sunshine', color: '#f5edc9' },
-    { src: '', art: 'butterfly', caption: 'Just being you', color: '#e3e9d9' },
-    { src: '', art: 'lemon', caption: 'The silly little days', color: '#f5eccb' },
-    { src: '', art: 'sprig', caption: 'Growing, glowing', color: '#e7eadb' },
-    { src: '', art: 'bouquet', caption: 'More memories to come', color: '#f2eedc' },
+    { src: 'assets/Gegehh/little grace energy.jpeg', art: 'daisy', caption: 'Little Grace energy', color: '#e8ebd9' },
+    { src: 'assets/Gegehh/sunshine.jpeg', art: 'sun', caption: 'A pocket of sunshine', color: '#f5edc9' },
+    { src: 'assets/Gegehh/just being you.jpeg', art: 'butterfly', caption: 'Just being you', color: '#e3e9d9' },
+    { src: 'assets/Gegehh/silly lttle days.jpeg', art: 'lemon', caption: 'The silly little days', color: '#f5eccb' },
+    { src: 'assets/Gegehh/growin glowing.jpeg', art: 'sprig', caption: 'Growing, glowing', color: '#e7eadb' },
+    { src: 'assets/Gegehh/more memo.jpeg', art: 'bouquet', caption: 'More memories to come', color: '#f2eedc' },
   ],
   flowers: [
-    { x: 28, y: 27, label: 'Doa untuk kebahagiaan', message: 'Semoga selalu ada alasan kecil buat ketawa setiap hari, Grace. Bahkan dari hal yang paling receh. ☀' },
-    { x: 48, y: 17, label: 'Doa untuk mimpi', message: 'Semoga mimpi-mimpimu ketemu jalannya. Satu langkah kecil dulu juga nggak apa-apa. ✦' },
-    { x: 68, y: 29, label: 'Doa untuk keberanian', message: 'Berani coba hal baru, ya. Kalau belum berhasil, istirahat sebentar, lalu coba lagi. Kakak dukung! ✿' },
-    { x: 39, y: 43, label: 'Doa untuk kesehatan', message: 'Sehat terus, cukup istirahat, dan jangan telat makan. Iya, ini pesan wajib dari kakak. ☺' },
-    { x: 61, y: 44, label: 'Doa untuk diri sendiri', message: 'Tumbuh dengan caramu sendiri. Nggak perlu balapan sama siapa-siapa. Proud of you, dek. ❋' },
+    { x: 28, y: 27, label: 'Doa untuk kebahagiaan', message: 'Semoga selalu ada alasan kecil buat ketawa setiap hari ya geh. Bahkan dari hal yang paling receh. ☀' },
+    { x: 48, y: 17, label: 'Doa untuk mimpi', message: 'Semoga mimpi-mimpimu ketemu jalannya. Satu langkah kecil dulu juga gapapaa. ✦' },
+    { x: 68, y: 29, label: 'Doa untuk keberanian', message: 'Berani coba hal baru ya. Kalau belum berhasil, take some rest and try it another time. I got ur back! ✿' },
+    { x: 39, y: 43, label: 'Doa untuk kesehatan', message: 'Sehat terus, cukup istirahat, dan jangan telat makan. kurang-kurangin begadangnya yeh. ☺' },
+    { x: 61, y: 44, label: 'Doa untuk diri sendiri', message: 'Tumbuh dengan caramu sendiri. ga perlu balapan sama siapa-siapa. Proud of you, geh! ❋' },
   ],
   journey: [
-    // Isi photo setelah menyimpan foto di assets/journey/ (contoh path di setiap item).
-    { chapter: 'THE BEGINNING', photo: '', /* 'assets/journey/01-kecil.jpg' */ title: 'Dulu masih kecil banget', text: 'Dari Gegeh kecil sampai sekarang, ternyata udah banyak juga ya cerita yang dikumpulin.' },
-    { chapter: 'THE LITTLE ADVENTURES', photo: '', /* 'assets/journey/02-cerita.jpg' */ title: 'Ada aja ceritanya', text: 'Dari hal baru yang dicoba sampai cerita random sehari-hari. Yang receh-receh gini justru suka paling diinget.' },
-    { chapter: 'THE GROWING CHAPTER', photo: '', /* 'assets/journey/03-tumbuh.jpg' */ title: 'Makin gede, makin jadi diri sendiri', text: 'Mulai tahu apa yang disuka, punya mimpi sendiri, dan pelan-pelan cari jalannya. Nggak harus langsung tahu semuanya kok.' },
-    { chapter: 'RIGHT HERE, RIGHT NOW', photo: '', /* 'assets/journey/04-sekarang.jpg' */ title: 'Hari ini jatahnya Gegeh!', text: 'Hari ini istirahat dulu dari mikirin yang ribet-ribet. Makan enak, ketawa banyak, terus buka kado hehe.' },
-    { chapter: 'TO BE CONTINUED', photo: '', /* 'assets/journey/05-petualangan.jpg' */ title: 'Masih banyak serunya nanti', text: 'Masih banyak tempat buat didatengin dan hal baru buat dicoba. Satu-satu aja, yang penting dinikmatin.' },
+    // Foto milestone disimpan di assets/journey/.
+    { chapter: 'THE BEGINNING', photo: 'assets/journey/01-kecil.jpeg', title: 'Dulu masih kecil banget', text: 'Dari kamu kecil sampai sekarang, ternyata banyak juga ye cerita yang dikumpulin.' },
+    { chapter: 'THE LITTLE ADVENTURES', photo: 'assets/journey/02-cerita.jpeg', title: 'Ada aja ceritanya', text: 'Dari hal baru yang dicoba sampai cerita random sehari-hari. Yang receh-receh gini justru paling suka keinget.' },
+    { chapter: 'THE GROWING CHAPTER', photo: 'assets/journey/03-tumbuh.jpeg', title: 'Makin gede, makin jadi diri sendiri', text: 'Mulai tahu apa yang disuka, punya mimpi sendiri, dan pelan-pelan cari jalannya. Ga harus langsung tahu semuanya kok.' },
+    { chapter: 'RIGHT HERE, RIGHT NOW', photo: 'assets/journey/04-sekarang.jpeg', title: 'Take ur time for today!', text: 'Hari ini istirahat dulu dari mikirin yang ribet-ribet. Makan enak, ketawa banyak, terus buka kado hehe.' },
+    { chapter: 'TO BE CONTINUED', photo: 'assets/journey/05-petualangan.jpeg', title: 'Masih banyak serunya nanti', text: 'Masih banyak tempat buat didatengin dan hal baru buat dicoba. Satu-satu aja, yang penting dinikmatin.' },
   ],
   wishes: [
-    // Draft surat: silakan ganti text dengan ucapan asli masing-masing pengirim.
-    // Setelah menaruh foto di assets/letters, isi photo sesuai contoh di bawah.
-    { sender: 'Ayah', photo: '', /* 'assets/letters/ayah.jpg' */ subtitle: 'PESAN KECIL DARI AYAH', text: 'Selamat ulang tahun, Grace! Sehat selalu ya. Semoga apa yang lagi kamu usahakan dilancarkan, dan kamu makin berani mengejar yang kamu mau. Kalau capek, istirahat dulu. Jangan lupa, Ayah selalu dukung kamu.' },
-    { sender: 'Mama', photo: '', /* 'assets/letters/mama.jpg' */ subtitle: 'ADA TITIPAN DARI MAMA', text: 'Happy birthday, Gegeh! Semoga sehat, bahagia, dan selalu dikelilingi orang-orang baik. Jangan lupa makan sama istirahat yang cukup ya, meskipun Mama pasti bakal ingetin lagi hehe. Banyak-banyak cerita sama Mama, ya!' },
-    { sender: 'Kakak', photo: '', /* 'assets/letters/kakak.jpg' */ subtitle: 'DARI TEMAN RIBUTMU', text: 'HBD, Gegehhh! Makin gede aja nih. Semoga makin banyak hal seru yang kamu temuin tahun ini, dan satu-satu yang kamu pengenin bisa kesampaian. Kita boleh ribut soal hal receh, tapi kalau kamu butuh apa-apa, kakak tetap di tim kamu. Enjoy your day, dek!' },
-    { sender: 'Eki', photo: '', /* 'assets/letters/eki.jpg' */ subtitle: 'SATU LAGI, DARI EKI', text: 'Happy birthday, Gegeh! Semoga tahun ini banyak senengnya, banyak ketawanya, dan makin banyak cerita seru. Semoga yang lagi kamu tunggu-tunggu segera datang ya. Hari ini jangan lupa makan enak dan nikmatin kadonya!' },
+    // Isi ucapan keluarga bisa diperbarui lewat text masing-masing pengirim.
+    // Foto keluarga disimpan di assets/letters/.
+    { sender: 'Ayah', photo: 'assets/letters/ayah.jpeg', subtitle: 'PESAN KECIL DARI AYAH', text: 'Selamat ulang tahun, Grace! Sehat selalu ya. Semoga apa yang lagi kamu usahakan dilancarkan, dan kamu makin berani mengejar yang kamu mau. Kalau capek, istirahat dulu. Jangan lupa, Ayah selalu dukung kamu.' },
+    { sender: 'Mama', photo: 'assets/letters/mama.jpeg', subtitle: 'ADA TITIPAN DARI MAMA', text: 'Waktu begitu cepet berlalu ya Grace..doa dan harapan Ibu disetiap langkahmu selalu dilimpahi kesehatan, kesuksesan , keberuntungan dan keselamatan serta bermanfaat dimanapun kamu berada..Selamat ulangtahun  selamat mensyukuri pemyertaan  Tuhan Yesus..amin amin amin😘💝' },
+    { sender: 'Kakak', photo: 'assets/letters/kakak.jpeg', subtitle: 'DARI TEMAN RIBUTMU', text: 'HBD, Gegehhh! Makin gede aja dah km. Semoga makin banyak hal seru yang kamu temuin tahun ini, dan satu-satu yang kamu pengenin bisa kesampaian. Just call me klo kamu butuh apa-apa yea, Enjoy your day! *pls ganti nama kontak WA ku huhu' },
+    { sender: 'Eki', photo: 'assets/letters/eki.jpeg', subtitle: 'SATU LAGI, DARI EKI', text: 'Happy birthday, Gegeh! Semoga tahun ini banyak senengnya, banyak ketawanya, dan makin banyak cerita seru. Semoga yang lagi kamu tunggu-tunggu segera datang ya. Hari ini jangan lupa makan enak dan nikmatin kadonya!' },
   ],
   surprise: {
     ticketImage: 'assets/gifts/candlelight-ticket.png',
@@ -401,7 +401,7 @@ function renderTicket() {
 
 function renderSecondGift() {
   $('#surprise-modal').classList.add('second-gift');
-  $('#surprise-content').innerHTML = `<span class="section-kicker">SURPRISE 02 / A LITTLE TREASURE HUNT</span><div class="closet-illustration" aria-hidden="true"><span>✿</span><i></i><b>for Gegeh</b></div><h2 id="surprise-title" tabindex="-1">Eh, belum <em>selesai!</em></h2><p>Masih ada hadiah kedua buat kamu, hehe.<br />Coba cek <strong>di dalam lemari kamar Gegeh</strong> ya!</p><p class="modal-signature">Selamat bongkar-bongkar. Happy birthday, dek! ✿</p><button id="back-to-ticket" class="text-button">← Lihat tiketnya lagi</button>`;
+  $('#surprise-content').innerHTML = `<span class="section-kicker">SURPRISE 02 / A LITTLE TREASURE HUNT</span><div class="closet-illustration" aria-hidden="true"><span>✿</span><i></i><b>for Gegeh</b></div><h2 id="surprise-title" tabindex="-1">Eh, belum <em>selesai!</em></h2><p>Masih ada hadiah kedua buat kamu, hehe.<br />Coba cek <strong>di dalam lemari kamar Gegeh</strong> ya!</p><p class="modal-signature">Selamat bongkar-bongkar. Happy birthday, geh! ✿</p><button id="back-to-ticket" class="text-button">← Lihat tiketnya lagi</button>`;
   $('#back-to-ticket').addEventListener('click', () => {
     renderTicket();
     $('#surprise-title').focus({ preventScroll: true });

@@ -49,14 +49,14 @@ Buka **http://localhost:3000**. Musik mulai setelah kado diklik; tombol `♫` di
 
 ## 📸 Bikin lebih personal
 
-Semua isi utama ada di **[`CONFIG` pada script.js](script.js)**. Foto masih memakai ilustrasi sementara, dan ucapan keluarga masih berupa draft yang bisa diganti.
+Semua isi utama ada di **[`CONFIG` pada script.js](script.js)**. Enam foto galeri, lima foto milestone, dan empat foto keluarga sudah terpasang. Teks dan ucapan dapat diperbarui di konfigurasi yang sama.
 
 ### Galeri kenangan
 
-Simpan foto di `assets/`, lalu isi `src` pada `CONFIG.photos`:
+Foto galeri saat ini ada di `assets/Gegehh/`. Untuk menggantinya, isi `src` pada `CONFIG.photos`:
 
 ```js
-{ src: 'assets/grace-1.jpg', art: 'daisy', caption: 'Hari yang seru banget', color: '#e8ebd9' }
+{ src: 'assets/grace-1.jpeg', art: 'daisy', caption: 'Hari yang seru banget', color: '#e8ebd9' }
 ```
 
 ### Foto milestone
@@ -65,13 +65,13 @@ Simpan foto di [`assets/journey/`](assets/journey/README.md), lalu isi `photo` p
 
 | Milestone | File foto |
 | --- | --- |
-| Dulu masih kecil banget | `assets/journey/01-kecil.jpg` |
-| Ada aja ceritanya | `assets/journey/02-cerita.jpg` |
-| Makin gede, makin jadi diri sendiri | `assets/journey/03-tumbuh.jpg` |
-| Hari ini jatahnya Gegeh! | `assets/journey/04-sekarang.jpg` |
-| Masih banyak serunya nanti | `assets/journey/05-petualangan.jpg` |
+| Dulu masih kecil banget | `assets/journey/01-kecil.jpeg` |
+| Ada aja ceritanya | `assets/journey/02-cerita.jpeg` |
+| Makin gede, makin jadi diri sendiri | `assets/journey/03-tumbuh.jpeg` |
+| Hari ini jatahnya Gegeh! | `assets/journey/04-sekarang.jpeg` |
+| Masih banyak serunya nanti | `assets/journey/05-petualangan.jpeg` |
 
-Contoh: ubah `photo: ''` menjadi `photo: 'assets/journey/01-kecil.jpg'`. Judul dan ceritanya boleh ikut disesuaikan.
+Contoh: ubah `photo: ''` menjadi `photo: 'assets/journey/01-kecil.jpeg'`. Judul dan ceritanya boleh ikut disesuaikan.
 
 ### Foto dan surat keluarga
 
@@ -79,15 +79,15 @@ Simpan foto di [`assets/letters/`](assets/letters/README.md), lalu edit `CONFIG.
 
 | Pengirim | File foto |
 | --- | --- |
-| Ayah | `assets/letters/ayah.jpg` |
-| Mama | `assets/letters/mama.jpg` |
-| Kakak | `assets/letters/kakak.jpg` |
-| Eki | `assets/letters/eki.jpg` |
+| Ayah | `assets/letters/ayah.jpeg` |
+| Mama | `assets/letters/mama.jpeg` |
+| Kakak | `assets/letters/kakak.jpeg` |
+| Eki | `assets/letters/eki.jpeg` |
 
 ```js
 {
   sender: 'Ayah',
-  photo: 'assets/letters/ayah.jpg',
+  photo: 'assets/letters/ayah.jpeg',
   subtitle: 'PESAN KECIL DARI AYAH',
   text: 'Tulis ucapan Ayah di sini…'
 }
