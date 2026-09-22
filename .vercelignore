@@ -1,0 +1,7 @@
+.browser-preview/
+.preview/
+.tools/
+*.log
+__pycache__/
+verify.mjs
+generate-assets.py

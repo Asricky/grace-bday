@@ -1,0 +1,9 @@
+{
+  "name": "sweet-17th-grace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node --check script.js"
+  }
+}

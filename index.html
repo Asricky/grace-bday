@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f7ee" />
+  <meta name="description" content="A little birthday garden for Grace Natalie, made by your kakak." />
+  <title>A little sunshine for Grace ✿</title>
+  <link rel="icon" href="assets/daisy.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section id="game-screen" class="gate" aria-labelledby="game-title">
+    <header class="site-header"><a class="wordmark" href="./"><span>✳</span> grace's little garden</a><span class="header-note">A BIRTHDAY SPECIAL <span class="little-star">✦</span></span></header>
+    <div class="gate-layout">
+      <div class="gate-intro">
+        <span class="pill"><i></i> A LITTLE SURPRISE FROM KAKAK</span>
+        <h1 id="game-title">A little play.<br />A little <em>sunshine.</em></h1>
+        <p class="intro-copy">Gegehhh, ada sesuatu nih buat kamu!<br />Tapi main sebentar dulu ya, hehe.</p>
+        <div class="intro-bouquet"><img src="assets/bouquet.svg" alt="Bouquet bunga daisy putih dan kuning dengan daun hijau" /><span class="handwritten">picked just for you ↗</span><span class="botanical-label">DAISIES, SUNSHINE & A LITTLE JOY</span></div>
+      </div>
+      <div class="game-panel">
+        <div class="game-panel-top"><span class="section-kicker">01 / THE LITTLE CHALLENGE</span><button id="restart-game" class="text-button" aria-label="Acak dan mulai ulang permainan">↻ <span>Ulangi</span></button></div>
+        <h2>Find your little blooms</h2>
+        <p>Cari 6 pasang gambar yang sama di balik kartu ini.<br />Santai aja, nggak pakai timer kok.</p>
+        <div class="game-stats"><span><b id="pairs-count">0</b> / 6 pasang</span><span><b id="moves-count">0</b> langkah</span></div>
+        <div class="memory-grid" id="memory-grid" aria-label="Permainan mencocokkan gambar"></div>
+        <div class="game-bottom"><span class="game-status" id="game-status" role="status">✧ Sedikit rasa penasaran, banyak kejutan.</span><button class="primary-button hidden" id="unlock-gift">Buka kejutanmu <span>↗</span></button></div>
+        <div class="game-skip"><span id="skip-hint">Kalau mau, boleh lewati setelah 30 detik.</span><button id="skip-game" class="text-button hidden">Lihat kejutannya dulu aja ↗</button><span id="skip-ready" class="sr-only" role="status"></span></div>
+      </div>
+    </div>
+    <footer class="gate-footer"><span>MADE WITH A WHOLE LOT OF SIBLING LOVE</span><span>For Grace Natalie <span>✿</span></span></footer>
+  </section>
+
+  <section id="gift-screen" class="gift-screen hidden" aria-labelledby="gift-title">
+    <span class="section-kicker">YOU FOUND ALL THE LITTLE BLOOMS!</span>
+    <h1 id="gift-title" tabindex="-1">This one's <em>for you.</em></h1>
+    <p>Yeay, berhasil! Sekarang boleh buka kadonya hehe.</p>
+    <button id="giftbox" class="giftbox" aria-label="Buka hadiah ulang tahun"><span class="gift-bow"></span><span class="gift-lid"></span><span class="gift-body"></span><span class="gift-tag">for Grace ✿</span></button>
+    <span class="gift-hint">ketuk kadonya untuk membuka ↑</span>
+  </section>
+
+  <main id="main-content" class="hidden">
+    <div id="scroll-progress"></div>
+    <header class="site-header main-header"><a class="wordmark" href="#hero"><span>✳</span> grace's little garden</a><nav aria-label="Navigasi utama"><a href="#bouquet">The bouquet</a><a href="#memories">Little moments</a><a href="#wishes">Good wishes</a></nav><span class="header-note">IT'S YOUR DAY ✦</span></header>
+    <section id="hero" class="hero">
+      <div class="hero-copy"><span class="pill"><i></i> TODAY, WE CELEBRATE YOU</span><p class="hero-small">A little sunshine for our birthday girl</p><h1 tabindex="-1">Happy<br /><em>Birthday,</em><br />Grace Natalie<span class="title-star">✳</span></h1><p class="hero-description">Untuk adikku, teman ribut sekaligus teman tumbuh.<br />Semoga tahun ini penuh hal baik, tawa lepas,<br class="desktop-break" /> dan mimpi yang satu-satu jadi nyata.</p><a class="primary-button" href="#bouquet">Ada sesuatu buat kamu <span>↓</span></a><span class="hero-signature">a little gift, from your kakak.</span></div>
+      <div class="hero-art"><span class="orbit-label">KEEP GROWING · KEEP GLOWING ·</span><img src="assets/bouquet.svg" alt="Rangkaian daisy putih dan kuning, diikat pita hijau" /><div class="hero-note"><span>✦</span><p>A new year to bloom.<br /><em>At your own pace.</em></p></div><span class="art-caption">THE GRACE NATALIE COLLECTION / BIRTHDAY EDITION</span></div>
+    </section>
+    <div class="flower-marquee" aria-hidden="true"><span>A LITTLE OLDER</span> ✿ <span>A LITTLE BOLDER</span> ✿ <span>ALWAYS OUR GRACE</span> ✿ <span>LET GOOD THINGS GROW</span> ✿</div>
+
+    <section id="bouquet" class="section bouquet-section">
+      <div class="section-heading reveal"><span class="section-kicker">01 / FRESHLY PICKED FOR YOU</span><h2>A bouquet of <em>good things.</em></h2><p>Bunga dulu ya, biar nggak layu kalau lupa disiram.<br />Coba pencet satu-satu, ada pesan kecilnya!</p></div>
+      <div class="bouquet-interactive reveal"><img src="assets/bouquet.svg" alt="Bouquet interaktif berisi lima doa baik" /><div id="flower-buttons"></div><div class="bouquet-tooltip" id="bouquet-message" role="status"><span>✿</span> Pilih satu bunga, ambil satu doa.</div></div>
+      <span class="tiny-note">a little reminder: you deserve good things, Grace.</span>
+    </section>
+
+    <section id="memories" class="section memories-section">
+      <div class="section-heading reveal"><span class="section-kicker">02 / THE LITTLE THINGS, KEPT FOREVER</span><h2>Small moments.<br /><em>Big memories.</em></h2><p>Untuk cerita random, tawa receh, dan hari-hari yang ingin disimpan.</p></div>
+      <div id="photo-grid" class="photo-grid reveal"></div>
+      <p class="tiny-note">Ruang ini menunggu foto-foto seru Grace. Untuk sekarang, bunga-bunga dulu ya! ✿</p>
+    </section>
+
+    <section id="journey" class="section journey-section"><div class="journey-intro reveal"><span class="section-kicker">03 / ONE LITTLE STEP AT A TIME</span><h2>Look at you,<br /><em>growing.</em></h2><p>Perasaan kemarin masih kecil.<br />Eh, sekarang udah segede ini aja.</p><img src="assets/sprig.svg" alt="" /></div><div id="journey-list" class="journey-list"></div></section>
+
+    <section id="wishes" class="section wishes-section"><div class="section-heading reveal"><span class="section-kicker">04 / FROM YOUR FAVOURITE PEOPLE</span><h2>A pocket full of <em>good wishes.</em></h2><p>Ada titipan dari Ayah, Mama, Kakak, dan Eki nih.<br />Buka satu-satu ya, jangan cuma diintip!</p></div><div class="wish-grid reveal" id="wish-grid"></div><p class="tiny-note"><span id="wish-count">0</span> dari <span id="wish-total">4</span> surat sudah dibuka ✿</p></section>
+
+    <section id="final-wish" class="final-section"><img class="final-sprig left" src="assets/sprig.svg" alt="" /><img class="final-sprig right" src="assets/sprig.svg" alt="" /><div class="reveal"><span class="section-kicker">HERE'S TO YOUR NEXT CHAPTER</span><h2>Grow a little.<br />Laugh a lot.<br /><em>Be you, always.</em></h2><p>Selamat ulang tahun, Grace Natalie!<br />Sehat terus, makin berani, dan jangan lupa bahagia.<br />Kakak selalu dukung kamu.</p><button class="primary-button yellow" id="celebrate-btn">Make a little wish <span>✦</span></button><span class="final-signature">from your kakak, with a big high-five. ✋</span></div></section>
+    <footer class="main-footer"><a class="wordmark" href="#hero"><span>✳</span> grace's little garden</a><span>GROWN WITH CARE. MADE FOR GRACE.</span><button class="text-button" id="replay-game">Main kartu lagi ↗</button></footer>
+    <button class="floating-music" id="floating-music" aria-label="Putar musik" aria-pressed="false">♫ <span>sound off</span></button>
+  </main>
+
+  <dialog id="detail-modal" class="detail-modal" aria-label="Foto dan pesan untuk Grace"><button class="close-modal" aria-label="Tutup">×</button><div id="detail-content"></div></dialog>
+  <dialog id="surprise-modal" class="detail-modal surprise-modal" aria-labelledby="surprise-title"><button id="close-surprise" class="close-modal" aria-label="Tutup kejutan">×</button><div id="surprise-content" aria-live="polite"></div></dialog>
+  <div id="confetti" aria-hidden="true"></div>
+  <noscript><div class="noscript">Aktifkan JavaScript untuk memainkan kartu dan membuka kejutan Grace.</div></noscript>
+  <script src="script.js"></script>
+</body>
+</html>

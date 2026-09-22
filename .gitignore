@@ -1,0 +1,10 @@
+.browser-preview/
+.preview/
+*.log
+__pycache__/
+.vercel/
+.tools/
+dist/
+node_modules/
+.env
+.env.*

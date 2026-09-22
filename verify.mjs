@@ -1,0 +1,184 @@
+import { writeFile, mkdir } from 'node:fs/promises';
+import assert from 'node:assert/strict';
+
+const pages = await (await fetch('http://127.0.0.1:9223/json')).json();
+const ws = new WebSocket(pages.find(page => page.type === 'page').webSocketDebuggerUrl);
+await new Promise(resolve => ws.addEventListener('open', resolve, { once: true }));
+let id = 0;
+const requests = new Map();
+const errors = [];
+ws.addEventListener('message', ({ data }) => {
+  const message = JSON.parse(data);
+  if (message.id) {
+    const request = requests.get(message.id);
+    requests.delete(message.id);
+    if (message.error) request.reject(message.error); else request.resolve(message.result);
+  }
+  if (message.method === 'Runtime.exceptionThrown') errors.push(message.params.exceptionDetails.text);
+  if (message.method === 'Network.responseReceived' && message.params.response.status >= 400) {
+    const { status, url } = message.params.response;
+    // The original chat attachment may not yet be saved; the ticket has an intentional fallback.
+    if (!(status === 404 && url.endsWith('/assets/gifts/candlelight-ticket.png'))) errors.push(`${status} ${url}`);
+  }
+});
+function send(method, params = {}) {
+  return new Promise((resolve, reject) => {
+    requests.set(++id, { resolve, reject });
+    ws.send(JSON.stringify({ id, method, params }));
+  });
+}
+async function evaluate(expression) {
+  const result = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true, userGesture: true });
+  if (result.exceptionDetails) throw new Error(JSON.stringify(result.exceptionDetails));
+  return result.result.value;
+}
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+async function screenshot(name) {
+  const result = await send('Page.captureScreenshot', { format: 'png' });
+  await writeFile(`.preview/${name}.png`, Buffer.from(result.data, 'base64'));
+}
+await mkdir('.preview', { recursive: true });
+try {
+  await send('Runtime.enable');
+  await send('Network.enable');
+  await send('Page.enable');
+  await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 960, deviceScaleFactor: 1, mobile: false });
+  await send('Page.navigate', { url: 'http://127.0.0.1:3000' });
+  await delay(2000);
+  await evaluate('document.fonts.ready.then(() => true)');
+  assert.equal(await evaluate('document.querySelectorAll(".memory-card").length'), 12);
+  await screenshot('desktop-game');
+  await evaluate(`(() => { const cards=[...document.querySelectorAll('.memory-card')]; cards[0].click(); cards.find(c=>c.dataset.symbol!==cards[0].dataset.symbol).click(); cards.find(c=>!c.classList.contains('flipped')).click(); })()`);
+  assert.equal(await evaluate('document.querySelectorAll(".flipped").length'), 2, 'rapid third click must be ignored');
+  await delay(1050);
+  assert.equal(await evaluate('document.querySelectorAll(".flipped").length'), 0, 'mismatches turn back');
+  await evaluate(`document.querySelector('#restart-game').click()`);
+  assert.equal(await evaluate('document.querySelector("#moves-count").textContent'), '0');
+  await evaluate(`(() => { const cards=[...document.querySelectorAll('.memory-card')]; cards[0].click(); cards.find(c=>c.dataset.symbol!==cards[0].dataset.symbol).click(); document.querySelector('#restart-game').click(); })()`);
+  await delay(1050);
+  assert.equal(await evaluate('document.querySelectorAll(".flipped").length'), 0, 'restart cancels mismatch timer');
+  await evaluate(`(() => { const cards=[...document.querySelectorAll('.memory-card')]; for(const symbol of new Set(cards.map(c=>c.dataset.symbol))) cards.filter(c=>c.dataset.symbol===symbol).forEach(c=>c.click()); })()`);
+  assert.equal(await evaluate('document.querySelector("#pairs-count").textContent'), '6');
+  assert.equal(await evaluate('document.querySelector("#moves-count").textContent'), '6');
+  assert.equal(await evaluate('document.querySelectorAll(".matched").length'), 12);
+  await evaluate(`document.querySelector('#unlock-gift').click()`);
+  await evaluate(`document.querySelector('#giftbox').click()`);
+  await delay(1400);
+  assert.equal(await evaluate('document.querySelector("#main-content").classList.contains("hidden")'), false);
+  await screenshot('desktop-hero');
+  assert.equal(await evaluate('document.querySelectorAll(".journey-photo").length'), 5, 'all milestones have photo slots');
+  await evaluate(`document.querySelector('#journey').scrollIntoView({behavior:'instant'})`);
+  await delay(900);
+  await screenshot('desktop-journey');
+  await evaluate(`document.querySelector('.journey-photo').click()`);
+  assert.match(await evaluate('document.querySelector("#detail-content").textContent'), /Dulu masih kecil banget/);
+  await evaluate(`document.querySelector('#detail-modal .close-modal').click()`);
+  await evaluate(`document.querySelector('.flower-hotspot').click()`);
+  assert.match(await evaluate('document.querySelector("#bouquet-message").textContent'), /ketawa/);
+  await evaluate(`document.querySelector('.polaroid').click()`);
+  assert.equal(await evaluate('document.querySelector("#detail-modal").open'), true);
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  assert.equal(await evaluate('document.querySelector("#detail-modal").open'), false);
+  assert.equal(await evaluate('document.querySelector("#music")'), null, 'playlist section removed');
+  assert.deepEqual(await evaluate('[...document.querySelectorAll(".wish-card strong")].map(el=>el.textContent)'), ['Ayah','Mama','Kakak','Eki']);
+  await evaluate(`document.querySelector('#wishes').scrollIntoView({behavior:'instant'})`);
+  await delay(900);
+  await screenshot('desktop-family-letters');
+  await evaluate(`document.querySelector('.wish-card').click()`);
+  assert.equal(await evaluate('document.querySelectorAll(".letter-photo-placeholder").length'), 1);
+  await screenshot('desktop-letter');
+  await evaluate(`document.querySelector('#detail-modal .close-modal').click(); document.querySelector('.wish-card').click(); document.querySelector('#detail-modal .close-modal').click()`);
+  assert.equal(await evaluate('document.querySelector("#wish-count").textContent'), '1');
+  await evaluate(`CONFIG.wishes[1].photo = 'assets/daisy.svg'; document.querySelectorAll('.wish-card')[1].click()`);
+  await delay(150);
+  assert.equal(await evaluate('document.querySelector(".letter-photo").classList.contains("has-photo")'), true, 'configured letter photo loads');
+  await evaluate(`document.querySelector('#detail-modal .close-modal').click(); CONFIG.wishes[1].photo = ''; document.querySelectorAll('.wish-card')[2].click(); document.querySelector('#detail-modal .close-modal').click(); document.querySelectorAll('.wish-card')[3].click(); document.querySelector('#detail-modal .close-modal').click()`);
+  assert.equal(await evaluate('document.querySelector("#wish-count").textContent'), '4');
+  assert.equal(await evaluate('document.querySelector("#floating-music").getAttribute("aria-pressed")'), 'true', 'background audio begins when gift opens');
+  assert.equal(await evaluate('music.voices.size > 0'), true, 'background audio schedules notes');
+  await evaluate(`document.querySelector('#floating-music').click()`);
+  assert.equal(await evaluate('document.querySelector("#floating-music").getAttribute("aria-pressed")'), 'false');
+  await evaluate(`document.querySelector('#floating-music').click()`);
+  await delay(150);
+  assert.equal(await evaluate('document.querySelector("#floating-music").getAttribute("aria-pressed")'), 'true');
+  await evaluate(`document.querySelector('#celebrate-btn').click()`);
+  assert.equal(await evaluate('document.querySelector("#detail-modal").open'), true);
+  await delay(2500);
+  assert.equal(await evaluate('document.querySelector("#surprise-modal").open'), false, 'ticket must not open before three seconds');
+  await delay(650);
+  assert.equal(await evaluate('document.querySelector("#surprise-modal").open'), true, 'ticket opens after three seconds');
+  assert.equal(await evaluate('document.querySelector(".ticket-summary")'), null, 'no replacement ticket design');
+  assert.equal(await evaluate('document.querySelectorAll(".ticket-image-status, .ticket-image").length'), 1, 'original image or honest image status');
+  await screenshot('desktop-ticket');
+  await evaluate(`document.querySelector('#next-surprise').click()`);
+  assert.match(await evaluate('document.querySelector("#surprise-content").textContent'), /di dalam lemari kamar Gegeh/);
+  await screenshot('desktop-second-gift');
+  await evaluate(`document.querySelector('#back-to-ticket').click()`);
+  assert.equal(await evaluate('document.querySelectorAll("#next-surprise").length'), 1);
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await delay(100);
+  assert.equal(await evaluate('document.querySelectorAll("dialog[open]").length'), 0, 'Escape closes surprise flow');
+  assert.equal(await evaluate('document.body.style.overflow'), '');
+  await evaluate(`document.querySelector('#celebrate-btn').click(); document.querySelector('#detail-modal .close-modal').click()`);
+  await delay(3150);
+  assert.equal(await evaluate('document.querySelectorAll("dialog[open]").length'), 0, 'closing wish cancels pending surprise');
+  await send('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+  await evaluate('window.scrollTo({top:0,behavior:"instant"})');
+  await delay(400);
+  assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, 'mobile main has no horizontal overflow');
+  await screenshot('mobile-hero');
+  await evaluate(`document.querySelector('#memories').scrollIntoView({behavior:'instant'})`);
+  await delay(1000);
+  await screenshot('mobile-gallery');
+  await evaluate(`document.querySelector('#journey').scrollIntoView({behavior:'instant'})`);
+  await delay(900);
+  await screenshot('mobile-journey');
+  await evaluate(`document.querySelector('#wishes').scrollIntoView({behavior:'instant'})`);
+  await delay(900);
+  await screenshot('mobile-family-letters');
+  await evaluate(`document.querySelectorAll('.wish-card')[3].click()`);
+  await screenshot('mobile-letter');
+  await evaluate(`document.querySelector('#detail-modal .close-modal').click(); document.querySelector('#celebrate-btn').click()`);
+  await delay(3200);
+  assert.equal(await evaluate('document.querySelector("#surprise-modal").open'), true, 'quickly reopening after another letter still reveals ticket');
+  assert.equal(await evaluate('document.querySelector("#surprise-modal").scrollWidth <= document.querySelector("#surprise-modal").clientWidth'), true, 'mobile ticket no horizontal overflow');
+  await screenshot('mobile-ticket');
+  // Exercise the original-image branch without substituting a fake ticket in the project.
+  await evaluate(`CONFIG.surprise.ticketImage = 'assets/daisy.svg'; renderTicket()`);
+  await delay(150);
+  assert.equal(await evaluate('document.querySelector(".ticket-image").naturalWidth > 0'), true);
+  assert.equal(await evaluate('document.querySelector(".ticket-original").classList.contains("hidden")'), false);
+  await evaluate(`document.querySelector('#next-surprise').click()`);
+  await screenshot('mobile-second-gift');
+  await evaluate(`document.querySelector('#close-surprise').click()`);
+  await delay(100);
+  assert.equal(await evaluate('document.activeElement.id'), 'celebrate-btn', 'focus restored to celebration button');
+  await evaluate(`document.querySelector('#replay-game').click()`);
+  await delay(200);
+  assert.equal(await evaluate('document.querySelector("#pairs-count").textContent'), '0');
+  assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, 'mobile game has no horizontal overflow');
+  await screenshot('mobile-game');
+  assert.equal(await evaluate('document.querySelector("#skip-game").classList.contains("hidden")'), true);
+  await evaluate(`document.querySelector('#skip-game').click()`);
+  assert.equal(await evaluate('document.querySelector("#gift-screen").classList.contains("hidden")'), true, 'early skip is rejected');
+  const skipAt = await evaluate('game.skipAvailableAt');
+  await evaluate(`document.querySelector('#restart-game').click()`);
+  assert.equal(await evaluate('game.skipAvailableAt'), skipAt, 'shuffle keeps the original skip deadline');
+  console.log('Checking the real 30-second optional skip timer…');
+  const remaining = await evaluate('Math.max(0, game.skipAvailableAt - Date.now() - 500)');
+  await delay(remaining);
+  assert.equal(await evaluate('document.querySelector("#skip-game").classList.contains("hidden")'), true, 'skip remains hidden before 30 seconds');
+  await delay(650);
+  assert.equal(await evaluate('document.querySelector("#skip-game").classList.contains("hidden")'), false, 'skip available after 30 seconds');
+  assert.equal(await evaluate('document.querySelector("#game-screen").classList.contains("hidden")'), false, 'skip never navigates automatically');
+  await screenshot('mobile-optional-skip');
+  await evaluate(`document.querySelector('#skip-game').click()`);
+  assert.equal(await evaluate('document.querySelector("#gift-screen").classList.contains("hidden")'), false, 'optional skip opens the gift');
+  assert.equal(await evaluate('document.querySelector("#pairs-count").textContent'), '0', 'skip does not pretend the puzzle was completed');
+  await send('Emulation.setDeviceMetricsOverride', { width: 320, height: 640, deviceScaleFactor: 1, mobile: true });
+  assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true, '320px game has no horizontal overflow');
+  assert.deepEqual(errors, [], 'no browser errors or failed resources');
+  console.log('PASS: game, optional skip after 30 seconds, milestone photo slots and modal, background audio, four letters, photos, three-second surprise, original-ticket-only display, second-gift clue, dialog lifecycle, mobile overflow. No unexpected browser errors.');
+} finally { ws.close(); }
