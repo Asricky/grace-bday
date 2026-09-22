@@ -49,10 +49,11 @@ Simpan foto di `assets/journey/`: `01-kecil.jpg`, `02-cerita.jpg`, `03-tumbuh.jp
 ## GitHub dan Vercel
 
 - Repository: https://github.com/Asricky/grace-bday
-- Nama project Vercel yang dituju: `sweet-17th-grace`
-- Domain yang dituju: `sweet-17th-grace.vercel.app` (penetapannya harus dikonfirmasi melalui Vercel).
-- Import repository di Vercel dengan Root Directory `.`, Framework Preset **Other**. `vercel.json` sudah mengatur Build Command `npm run build` dan Output Directory `dist`.
+- Project Vercel sudah dibuat: https://vercel.com/asrickys-projects/sweet-17th-grace
+- Domain `sweet-17th-grace.vercel.app` sudah terpasang dan terverifikasi di project. Belum ada deployment produksi.
+- Root Directory `.`, Framework Preset **Other**. `vercel.json` mengatur Build Command `npm run build` dan Output Directory `dist`.
 - `npm run build` hanya menyalin HTML, CSS, JavaScript, dan aset situs ke `dist`. Log, profil browser, screenshot tes, dan dokumentasi tidak dipublikasikan.
 - Build akan memberi pesan yang jelas jika gambar tiket asli belum tersedia. Setelah file lengkap dan project terhubung, push ke `main` bisa digunakan untuk deployment otomatis.
+- Koneksi GitHub saat ini memerlukan pemasangan Vercel GitHub App untuk akun Asricky: https://github.com/apps/vercel. Beri akses ke repository `grace-bday`, lalu hubungkan di pengaturan Git project Vercel.
 
 Ilustrasi SVG disimpan lokal di `assets`; `generate-assets.py` adalah sumber pembuatannya. Font dari Google Fonts memiliki fallback lokal jika offline. Konten dan fitur lain tidak memerlukan layanan eksternal. Folder ini bisa di-host sebagai static site.
