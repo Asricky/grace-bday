@@ -61,17 +61,17 @@ Foto galeri saat ini ada di `assets/Gegehh/`. Untuk menggantinya, isi `src` pada
 
 ### Foto milestone
 
-Simpan foto di [`assets/journey/`](assets/journey/README.md), lalu isi `photo` pada item yang sesuai di `CONFIG.journey`.
+Bagian milestone memakai koleksi [`assets/Gegehh/`](assets/Gegehh/). Ubah `photo` pada item yang sesuai di `CONFIG.journey` untuk menggantinya.
 
 | Milestone | File foto |
 | --- | --- |
-| Dulu masih kecil banget | `assets/journey/01-kecil.jpeg` |
-| Ada aja ceritanya | `assets/journey/02-cerita.jpeg` |
-| Makin gede, makin jadi diri sendiri | `assets/journey/03-tumbuh.jpeg` |
-| Hari ini jatahnya Gegeh! | `assets/journey/04-sekarang.jpeg` |
-| Masih banyak serunya nanti | `assets/journey/05-petualangan.jpeg` |
+| Dulu masih kecil banget | `assets/Gegehh/little grace energy.jpeg` |
+| Ada aja ceritanya | `assets/Gegehh/silly lttle days.jpeg` |
+| Makin gede, makin jadi diri sendiri | `assets/Gegehh/growin glowing.jpeg` |
+| Take ur time for today! | `assets/Gegehh/sunshine.jpeg` |
+| Masih banyak serunya nanti | `assets/Gegehh/more memo.jpeg` |
 
-Contoh: ubah `photo: ''` menjadi `photo: 'assets/journey/01-kecil.jpeg'`. Judul dan ceritanya boleh ikut disesuaikan.
+Contoh: `photo: 'assets/Gegehh/little grace energy.jpeg'`. Judul dan ceritanya boleh ikut disesuaikan.
 
 ### Foto dan surat keluarga
 
@@ -144,7 +144,8 @@ Repository sudah terhubung ke Vercel. Push ke `main` memicu deployment otomatis.
 ├── script.js               # Konten, game, musik, dan kejutan
 ├── assets/
 │   ├── *.svg               # Ilustrasi bunga lokal
-│   ├── journey/            # Foto milestone
+│   ├── Gegehh/             # Foto aktif untuk galeri dan milestone
+│   ├── journey/            # Koleksi foto milestone sebelumnya
 │   ├── letters/            # Foto untuk empat surat
 │   └── gifts/              # Tiket publik yang sudah disensor
 ├── build.mjs               # Build static site

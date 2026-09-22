@@ -18,12 +18,12 @@ const CONFIG = {
     { x: 61, y: 44, label: 'Doa untuk diri sendiri', message: 'Tumbuh dengan caramu sendiri. ga perlu balapan sama siapa-siapa. Proud of you, geh! ❋' },
   ],
   journey: [
-    // Foto milestone disimpan di assets/journey/.
-    { chapter: 'THE BEGINNING', photo: 'assets/journey/01-kecil.jpeg', title: 'Dulu masih kecil banget', text: 'Dari kamu kecil sampai sekarang, ternyata banyak juga ye cerita yang dikumpulin.' },
-    { chapter: 'THE LITTLE ADVENTURES', photo: 'assets/journey/02-cerita.jpeg', title: 'Ada aja ceritanya', text: 'Dari hal baru yang dicoba sampai cerita random sehari-hari. Yang receh-receh gini justru paling suka keinget.' },
-    { chapter: 'THE GROWING CHAPTER', photo: 'assets/journey/03-tumbuh.jpeg', title: 'Makin gede, makin jadi diri sendiri', text: 'Mulai tahu apa yang disuka, punya mimpi sendiri, dan pelan-pelan cari jalannya. Ga harus langsung tahu semuanya kok.' },
-    { chapter: 'RIGHT HERE, RIGHT NOW', photo: 'assets/journey/04-sekarang.jpeg', title: 'Take ur time for today!', text: 'Hari ini istirahat dulu dari mikirin yang ribet-ribet. Makan enak, ketawa banyak, terus buka kado hehe.' },
-    { chapter: 'TO BE CONTINUED', photo: 'assets/journey/05-petualangan.jpeg', title: 'Masih banyak serunya nanti', text: 'Masih banyak tempat buat didatengin dan hal baru buat dicoba. Satu-satu aja, yang penting dinikmatin.' },
+    // Foto milestone menggunakan koleksi assets/Gegehh/.
+    { chapter: 'THE BEGINNING', photo: 'assets/Gegehh/little grace energy.jpeg', title: 'Dulu masih kecil banget', text: 'Dari kamu kecil sampai sekarang, ternyata banyak juga ye cerita yang dikumpulin.' },
+    { chapter: 'THE LITTLE ADVENTURES', photo: 'assets/Gegehh/silly lttle days.jpeg', title: 'Ada aja ceritanya', text: 'Dari hal baru yang dicoba sampai cerita random sehari-hari. Yang receh-receh gini justru paling suka keinget.' },
+    { chapter: 'THE GROWING CHAPTER', photo: 'assets/Gegehh/growin glowing.jpeg', title: 'Makin gede, makin jadi diri sendiri', text: 'Mulai tahu apa yang disuka, punya mimpi sendiri, dan pelan-pelan cari jalannya. Ga harus langsung tahu semuanya kok.' },
+    { chapter: 'RIGHT HERE, RIGHT NOW', photo: 'assets/Gegehh/sunshine.jpeg', title: 'Take ur time for today!', text: 'Hari ini istirahat dulu dari mikirin yang ribet-ribet. Makan enak, ketawa banyak, terus buka kado hehe.' },
+    { chapter: 'TO BE CONTINUED', photo: 'assets/Gegehh/more memo.jpeg', title: 'Masih banyak serunya nanti', text: 'Masih banyak tempat buat didatengin dan hal baru buat dicoba. Satu-satu aja, yang penting dinikmatin.' },
   ],
   wishes: [
     // Isi ucapan keluarga bisa diperbarui lewat text masing-masing pengirim.
@@ -82,7 +82,7 @@ function startGame(newVisit = false) {
     card.dataset.index = index + 1;
     card.setAttribute('aria-label', `Balik kartu ${index + 1}`);
     card.setAttribute('aria-pressed', 'false');
-    card.innerHTML = `<span class="card-inner"><span class="card-back" aria-hidden="true"><span>✳</span></span><span class="card-front" aria-hidden="true"><img src="assets/${symbol}.svg" alt="" /></span></span>`;
+    card.innerHTML = `<span class="card-inner"><span class="card-back" aria-hidden="true"><span><svg class="card-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" focusable="false" aria-hidden="true"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg></span></span><span class="card-front" aria-hidden="true"><img src="assets/${symbol}.svg" alt="" /></span></span>`;
     card.addEventListener('click', () => flipCard(card));
     $('#memory-grid').append(card);
   });
