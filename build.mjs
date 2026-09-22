@@ -12,7 +12,7 @@ const config = runInNewContext(`${configSource}\nCONFIG`);
 try {
   await access(join(root, config.surprise.ticketImage));
 } catch {
-  console.error(`Gambar tiket asli belum tersedia: ${config.surprise.ticketImage}. Simpan gambar lampiran sebelum build/deploy.`);
+  console.error(`Gambar tiket publik belum tersedia: ${config.surprise.ticketImage}. Simpan versi tersensor sebelum build/deploy.`);
   process.exit(1);
 }
 await mkdir(output, { recursive: true });
@@ -28,4 +28,4 @@ async function copyAssets(directory, target) {
   }
 }
 await copyAssets(join(root, 'assets'), join(output, 'assets'));
-console.log('Built static site in dist/. Original ticket image included.');
+console.log('Built static site in dist/. Public ticket image included.');

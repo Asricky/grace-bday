@@ -1,59 +1,166 @@
-# Grace's little garden
+<div align="center">
 
-Website ulang tahun untuk Grace Natalie dari kakak. Versi mandiri dari konsep `Final`, dengan tema putih, hijau sage, dan kuning daisy. Tidak ada PIN atau bagian “A Letter For You”.
+<img src="assets/bouquet.svg" width="210" alt="Bouquet daisy putih dan kuning untuk Grace" />
 
-## Preview
+# ✿ Grace's Little Garden
 
-Jalankan dari folder `Gegeh`:
+### A little play. A little sunshine. A sweet seventeenth.
 
-```powershell
+Hadiah ulang tahun interaktif untuk **Grace Natalie** — dari kakak, dengan bunga, kenangan, dan beberapa kejutan kecil.
+
+**[Buka taman Grace ↗](https://sweet-17th-grace.vercel.app)** · [Preview lokal](#-preview-lokal) · [Isi foto & ucapan](#-bikin-lebih-personal)
+
+![HTML](https://img.shields.io/badge/HTML-vanilla-748267?style=flat-square)
+![CSS](https://img.shields.io/badge/CSS-responsive-344e3d?style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-no_dependencies-f3d56c?style=flat-square&labelColor=344e3d)
+![Made for Grace](https://img.shields.io/badge/made_for-Grace_Natalie-e9eddf?style=flat-square&labelColor=748267)
+
+</div>
+
+---
+
+## 🌼 Ada apa di dalamnya?
+
+Bayangin membuka kado pelan-pelan: main sebentar, lihat bunga, buka kenangan, lalu ketemu kejutan di akhir.
+
+| Bagian | Yang bisa dicoba |
+| --- | --- |
+| **Little challenge** | Cocokkan 6 pasang flip card. Setelah 30 detik, boleh lewati atau lanjut main. |
+| **A gift for you** | Ketuk kotak kado untuk membuka taman dan menyalakan musik latar. |
+| **A bouquet of good things** | Pilih bunga untuk membaca lima pesan kecil. |
+| **Small moments, big memories** | Enam polaroid yang bisa dibuka lebih besar. |
+| **Look at you, growing** | Lima milestone, masing-masing dengan tempat foto. |
+| **A pocket full of good wishes** | Empat surat dari Ayah, Mama, Kakak, dan Eki, lengkap dengan foto. |
+| **Make a little wish** | Ucapan ulang tahun, lalu kejutan konser setelah 3 detik. Masih ada hadiah kedua! |
+
+Nuansanya **putih hangat, hijau sage, dan kuning daisy**. Dibuat untuk HP maupun desktop, dengan navigasi keyboard, tombol musik, dan dukungan *reduced motion*.
+
+## 🌱 Preview lokal
+
+Tidak perlu install dependency. Dari folder project, jalankan:
+
+```sh
 python -m http.server 3000 --bind 127.0.0.1
 ```
 
-Buka http://localhost:3000. Preview lokal tidak perlu install dependency atau build.
+Buka **http://localhost:3000**. Musik mulai setelah kado diklik; tombol `♫` di kanan bawah bisa dipakai untuk jeda atau putar kembali.
 
-## Isi
+> **Ulangi** mengacak kartu tanpa mengulang waktu tunggu 30 detik. **Main kartu lagi** di footer memulai sesi baru.
 
-- Memory game 12 kartu / 6 pasangan, hitungan langkah, acak ulang. Tombol lewati muncul setelah 30 detik dan opsional. Mengacak kartu tidak mengulang waktu tunggu; “Main kartu lagi” memulai sesi baru.
-- Animasi buka hadiah, hero ulang tahun, bouquet dengan 5 doa interaktif.
-- Galeri 6 polaroid, perjalanan tumbuh dengan foto untuk setiap milestone, musik latar, dan 4 surat dari Ayah, Mama, Kakak, serta Eki dengan tempat foto.
-- “Make a little wish” membuka ucapan, lalu popup tiket konser setelah 3 detik. Tombol berikutnya memberi petunjuk hadiah kedua di dalam lemari kamar Gegeh. Menutup ucapan sebelum 3 detik membatalkan popup berikutnya.
-- Tampilan responsif, navigasi keyboard, dialog dengan Escape, dan reduced motion.
+## 📸 Bikin lebih personal
 
-## Personalisasi
+Semua isi utama ada di **[`CONFIG` pada script.js](script.js)**. Foto masih memakai ilustrasi sementara, dan ucapan keluarga masih berupa draft yang bisa diganti.
 
-Edit `CONFIG` di `script.js`:
+### Galeri kenangan
 
-- `photos`: taruh foto Grace di `assets`, lalu isi `src`, misalnya `assets/grace-1.jpg`. Saat ini memakai ilustrasi sementara, bukan foto orang lain.
-- `journey`: isi `photo` untuk setiap milestone, lalu sesuaikan judul dan deskripsi. Petunjuk nama file ada di `assets/journey/README.md`. Teks awal bersifat umum, tanpa menebak sekolah/tanggal lahir.
-- `wishes`: empat draft surat. Ganti `text` dengan ucapan asli setiap pengirim; teks awal adalah contoh yang dibuat untuk preview.
-- `flowers`: doa di setiap bunga.
-- `tracks`: melodi instrumental sebelumnya tetap tersedia di konfigurasi. Melodi pertama menjadi musik latar saat kado dibuka. Tombol musik pojok kanan bawah untuk jeda/putar; bagian playlist di halaman sudah dihapus.
+Simpan foto di `assets/`, lalu isi `src` pada `CONFIG.photos`:
 
-## Foto surat Ayah, Mama, Kakak, Eki
+```js
+{ src: 'assets/grace-1.jpg', art: 'daisy', caption: 'Hari yang seru banget', color: '#e8ebd9' }
+```
 
-1. Simpan foto di folder `assets/letters/` dengan nama `ayah.jpg`, `mama.jpg`, `kakak.jpg`, dan `eki.jpg`.
-2. Di `script.js` → `CONFIG.wishes`, isi `photo` yang sesuai, misalnya `photo: 'assets/letters/ayah.jpg'`. Contoh path juga sudah ada di komentar setiap surat. Format PNG/WebP juga boleh; sesuaikan ekstensi di `photo`.
-3. Refresh browser. Foto tampil di atas isi surat. Selama `photo` kosong, tampil bingkai ilustrasi. Gambar yang gagal dimuat juga kembali ke bingkai ini.
+### Foto milestone
 
-## Gambar tiket konser
+Simpan foto di [`assets/journey/`](assets/journey/README.md), lalu isi `photo` pada item yang sesuai di `CONFIG.journey`.
 
-Simpan gambar tiket asli sebagai **`assets/gifts/candlelight-ticket.png`**. Popup akan memakainya otomatis saat dibuka, lengkap dengan tautan ukuran penuh. Jika nama/format berbeda, ubah `CONFIG.surprise.ticketImage` di `script.js`.
+| Milestone | File foto |
+| --- | --- |
+| Dulu masih kecil banget | `assets/journey/01-kecil.jpg` |
+| Ada aja ceritanya | `assets/journey/02-cerita.jpg` |
+| Makin gede, makin jadi diri sendiri | `assets/journey/03-tumbuh.jpg` |
+| Hari ini jatahnya Gegeh! | `assets/journey/04-sekarang.jpg` |
+| Masih banyak serunya nanti | `assets/journey/05-petualangan.jpg` |
 
-Popup hanya menampilkan gambar tiket asli. Desain tiket pengganti sudah dihapus. Saat gambar belum ada atau gagal dimuat, muncul pesan singkat; build produksi membutuhkan file tiket asli.
+Contoh: ubah `photo: ''` menjadi `photo: 'assets/journey/01-kecil.jpg'`. Judul dan ceritanya boleh ikut disesuaikan.
 
-## Foto milestone
+### Foto dan surat keluarga
 
-Simpan foto di `assets/journey/`: `01-kecil.jpg`, `02-cerita.jpg`, `03-tumbuh.jpg`, `04-sekarang.jpg`, `05-petualangan.jpg`. Isi `photo` pada item yang sesuai di `CONFIG.journey`, misalnya `photo: 'assets/journey/01-kecil.jpg'`. Format PNG/WebP juga bisa, cocokkan nama/ekstensinya. Setiap foto dapat diklik untuk diperbesar.
+Simpan foto di [`assets/letters/`](assets/letters/README.md), lalu edit `CONFIG.wishes`:
 
-## GitHub dan Vercel
+| Pengirim | File foto |
+| --- | --- |
+| Ayah | `assets/letters/ayah.jpg` |
+| Mama | `assets/letters/mama.jpg` |
+| Kakak | `assets/letters/kakak.jpg` |
+| Eki | `assets/letters/eki.jpg` |
 
-- Repository: https://github.com/Asricky/grace-bday
-- Project Vercel sudah dibuat: https://vercel.com/asrickys-projects/sweet-17th-grace
-- Domain `sweet-17th-grace.vercel.app` sudah terpasang dan terverifikasi di project. Belum ada deployment produksi.
-- Root Directory `.`, Framework Preset **Other**. `vercel.json` mengatur Build Command `npm run build` dan Output Directory `dist`.
-- `npm run build` hanya menyalin HTML, CSS, JavaScript, dan aset situs ke `dist`. Log, profil browser, screenshot tes, dan dokumentasi tidak dipublikasikan.
-- Build akan memberi pesan yang jelas jika gambar tiket asli belum tersedia. Setelah file lengkap dan project terhubung, push ke `main` bisa digunakan untuk deployment otomatis.
-- Koneksi GitHub saat ini memerlukan pemasangan Vercel GitHub App untuk akun Asricky: https://github.com/apps/vercel. Beri akses ke repository `grace-bday`, lalu hubungkan di pengaturan Git project Vercel.
+```js
+{
+  sender: 'Ayah',
+  photo: 'assets/letters/ayah.jpg',
+  subtitle: 'PESAN KECIL DARI AYAH',
+  text: 'Tulis ucapan Ayah di sini…'
+}
+```
 
-Ilustrasi SVG disimpan lokal di `assets`; `generate-assets.py` adalah sumber pembuatannya. Font dari Google Fonts memiliki fallback lokal jika offline. Konten dan fitur lain tidak memerlukan layanan eksternal. Folder ini bisa di-host sebagai static site.
+JPG, PNG, dan WebP bisa dipakai. Sesuaikan nama serta ekstensi di konfigurasi. Jika `photo` masih kosong, bingkai ilustrasi tetap tampil rapi.
+
+### Bunga dan musik
+
+- **`CONFIG.flowers`** — pesan di tiap bunga.
+- **`CONFIG.tracks`** — melodi instrumental. Melodi pertama dipakai sebagai musik latar, dimainkan lewat Web Audio setelah interaksi pengguna.
+
+<details>
+<summary><strong>🎁 Spoiler: pengaturan kejutan terakhir</strong></summary>
+
+Klik **Make a little wish** → popup ucapan → tunggu **3 detik** → gambar tiket konser → tombol menuju petunjuk hadiah kedua di lemari kamar Gegeh.
+
+Gambar publik ada di **`assets/gifts/candlelight-ticket.png`**, sesuai `CONFIG.surprise.ticketImage`. Foto tiket menggunakan versi yang **ID tiket, QR, dan kode QR tertulisnya sudah disensor permanen**. Tautan ukuran penuh juga mengarah ke versi tersensor tersebut.
+
+Jika mengganti tiket, gunakan gambar yang sudah disensor. File tiket tanpa sensor disimpan terpisah dari project dan tidak dipublikasikan.
+
+Menutup popup ucapan sebelum 3 detik membatalkan kejutan otomatis; tombolnya bisa diklik lagi.
+
+</details>
+
+## 🚀 Build & deploy
+
+```sh
+npm run check
+npm run build
+```
+
+Build memakai Node.js dan menyalin file situs ke **`dist/`**. Hanya HTML, CSS, JavaScript, dan aset situs yang dipublikasikan. Profil browser, screenshot pengujian, file environment, serta dokumentasi tidak masuk hasil build.
+
+| Pengaturan | Nilai |
+| --- | --- |
+| GitHub | [Asricky/grace-bday](https://github.com/Asricky/grace-bday) |
+| Production branch | `main` |
+| Vercel project | [sweet-17th-grace](https://vercel.com/asrickys-projects/sweet-17th-grace) |
+| Domain | [sweet-17th-grace.vercel.app](https://sweet-17th-grace.vercel.app) |
+| Framework preset | Other |
+| Root directory | `.` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+
+Repository sudah terhubung ke Vercel. Push ke `main` memicu deployment otomatis. Konfigurasi ada di [`vercel.json`](vercel.json); build akan berhenti dengan pesan yang jelas jika gambar tiket tidak ditemukan.
+
+## 🗂️ Peta project
+
+```text
+.
+├── index.html              # Struktur halaman dan popup
+├── style.css               # Tampilan taman, kartu, dan responsif
+├── script.js               # Konten, game, musik, dan kejutan
+├── assets/
+│   ├── *.svg               # Ilustrasi bunga lokal
+│   ├── journey/            # Foto milestone
+│   ├── letters/            # Foto untuk empat surat
+│   └── gifts/              # Tiket publik yang sudah disensor
+├── build.mjs               # Build static site
+├── generate-assets.py      # Sumber ilustrasi SVG
+├── verify.mjs              # Pengujian interaksi melalui Chrome DevTools
+└── vercel.json             # Konfigurasi deployment
+```
+
+Ilustrasi tersimpan lokal. Font dari Google Fonts punya fallback lokal, dan musik tidak membutuhkan file audio eksternal.
+
+---
+
+<div align="center">
+
+**Grow a little. Laugh a lot. Be you, always.**
+
+*Made for Grace, with a big sibling high-five. ✋*
+
+</div>

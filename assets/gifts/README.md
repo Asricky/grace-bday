@@ -1,7 +1,7 @@
-# Tiket konser
+# Tiket konser — versi publik
 
-Simpan gambar asli yang dilampirkan di chat sebagai `candlelight-ticket.png` di folder ini.
+`candlelight-ticket.png` adalah versi publik dari gambar tiket yang dilampirkan. ID tiket, QR, dan kode QR tertulisnya sudah disensor permanen pada file gambar.
 
-Popup otomatis mengambil `assets/gifts/candlelight-ticket.png`, tanpa mengubah gambar atau QR. Jika ekstensi/nama berbeda, edit `CONFIG.surprise.ticketImage` pada `../../script.js`.
+Popup dan tautan ukuran penuh mengambil versi tersensor yang sama. Jika mengganti gambar, sensor bagian sensitif terlebih dahulu. Jika nama berbeda, edit `CONFIG.surprise.ticketImage` pada `../../script.js`.
 
-Popup hanya menggunakan gambar asli tersebut. Tidak ada desain tiket pengganti atau QR buatan. Saat file belum tersedia, muncul pesan gambar belum bisa dibuka. Build produksi memerlukan gambar asli agar situs tidak ter-publish dengan tiket kosong.
+Tiket tanpa sensor disimpan di luar project dan tidak masuk repository atau build. Saat file publik tidak tersedia, popup menampilkan pesan gambar belum bisa dibuka dan build produksi berhenti.
