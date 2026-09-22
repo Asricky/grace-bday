@@ -1,4 +1,4 @@
-import { mkdir, readdir, copyFile, access } from 'node:fs/promises';
+import { mkdir, readdir, copyFile, access, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname } from 'node:path';
 import { runInNewContext } from 'node:vm';
@@ -15,6 +15,9 @@ try {
   console.error(`Gambar tiket publik belum tersedia: ${config.surprise.ticketImage}. Simpan versi tersensor sebelum build/deploy.`);
   process.exit(1);
 }
+// Remove stale build files only inside this project's fixed output directory.
+if (dirname(output) !== root || output !== join(root, 'dist')) throw new Error('Unsafe output path');
+await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const name of ['index.html', 'style.css', 'script.js']) await copyFile(join(root, name), join(output, name));
 // Only publish website assets; no browser profiles, logs, tests, or documentation.

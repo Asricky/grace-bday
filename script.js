@@ -12,24 +12,24 @@ const CONFIG = {
   ],
   flowers: [
     { x: 28, y: 27, label: 'Doa untuk kebahagiaan', message: 'Semoga selalu ada alasan kecil buat ketawa setiap hari ya geh. Bahkan dari hal yang paling receh. ☀' },
-    { x: 48, y: 17, label: 'Doa untuk mimpi', message: 'Semoga mimpi-mimpimu ketemu jalannya. Satu langkah kecil dulu juga gapapaa. ✦' },
+    { x: 48, y: 17, label: 'Doa untuk mimpi', message: 'Semoga mimpi-mimpimu ketemu jalannya. Satu langkah kecil dulu juga gapapaa. <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg>' },
     { x: 68, y: 29, label: 'Doa untuk keberanian', message: 'Berani coba hal baru ya. Kalau belum berhasil, take some rest and try it another time. I got ur back! ✿' },
     { x: 39, y: 43, label: 'Doa untuk kesehatan', message: 'Sehat terus, cukup istirahat, dan jangan telat makan. kurang-kurangin begadangnya yeh. ☺' },
-    { x: 61, y: 44, label: 'Doa untuk diri sendiri', message: 'Tumbuh dengan caramu sendiri. ga perlu balapan sama siapa-siapa. Proud of you, geh! ❋' },
+    { x: 61, y: 44, label: 'Doa untuk diri sendiri', message: 'Tumbuh dengan caramu sendiri. ga perlu balapan sama siapa-siapa. Proud of you, geh! <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg>' },
   ],
   journey: [
-    // Foto milestone menggunakan koleksi assets/Gegehh/.
-    { chapter: 'THE BEGINNING', photo: 'assets/Gegehh/little grace energy.jpeg', title: 'Dulu masih kecil banget', text: 'Dari kamu kecil sampai sekarang, ternyata banyak juga ye cerita yang dikumpulin.' },
-    { chapter: 'THE LITTLE ADVENTURES', photo: 'assets/Gegehh/silly lttle days.jpeg', title: 'Ada aja ceritanya', text: 'Dari hal baru yang dicoba sampai cerita random sehari-hari. Yang receh-receh gini justru paling suka keinget.' },
-    { chapter: 'THE GROWING CHAPTER', photo: 'assets/Gegehh/growin glowing.jpeg', title: 'Makin gede, makin jadi diri sendiri', text: 'Mulai tahu apa yang disuka, punya mimpi sendiri, dan pelan-pelan cari jalannya. Ga harus langsung tahu semuanya kok.' },
-    { chapter: 'RIGHT HERE, RIGHT NOW', photo: 'assets/Gegehh/sunshine.jpeg', title: 'Take ur time for today!', text: 'Hari ini istirahat dulu dari mikirin yang ribet-ribet. Makan enak, ketawa banyak, terus buka kado hehe.' },
-    { chapter: 'TO BE CONTINUED', photo: 'assets/Gegehh/more memo.jpeg', title: 'Masih banyak serunya nanti', text: 'Masih banyak tempat buat didatengin dan hal baru buat dicoba. Satu-satu aja, yang penting dinikmatin.' },
+    // Foto milestone menggunakan koleksi assets/journey/.
+    { chapter: 'THE BEGINNING', photo: 'assets/journey/01-kecil.jpeg', title: 'Dulu masih kecil banget', text: 'Dari kamu kecil sampai sekarang, ternyata banyak juga ye cerita yang dikumpulin.' },
+    { chapter: 'THE LITTLE ADVENTURES', photo: 'assets/journey/02-cerita.jpeg', title: 'Ada aja ceritanya', text: 'Dari hal baru yang dicoba sampai cerita random sehari-hari. Yang receh-receh gini justru paling suka keinget.' },
+    { chapter: 'THE GROWING CHAPTER', photo: 'assets/journey/03-tumbuh.jpeg', title: 'Makin gede, makin jadi diri sendiri', text: 'Mulai tahu apa yang disuka, punya mimpi sendiri, dan pelan-pelan cari jalannya. Ga harus langsung tahu semuanya kok.' },
+    { chapter: 'RIGHT HERE, RIGHT NOW', photo: 'assets/journey/04-sekarang.jpeg', title: 'Take ur time for today!', text: 'Hari ini istirahat dulu dari mikirin yang ribet-ribet. Makan enak, ketawa banyak, terus buka kado hehe.' },
+    { chapter: 'TO BE CONTINUED', photo: 'assets/journey/05-petualangan.jpeg', title: 'Masih banyak serunya nanti', text: 'Masih banyak tempat buat didatengin dan hal baru buat dicoba. Satu-satu aja, yang penting dinikmatin.' },
   ],
   wishes: [
     // Isi ucapan keluarga bisa diperbarui lewat text masing-masing pengirim.
     // Foto keluarga disimpan di assets/letters/.
     { sender: 'Ayah', photo: 'assets/letters/ayah.jpeg', subtitle: 'PESAN KECIL DARI AYAH', text: 'Selamat ulang tahun, Grace! Sehat selalu ya. Semoga apa yang lagi kamu usahakan dilancarkan, dan kamu makin berani mengejar yang kamu mau. Kalau capek, istirahat dulu. Jangan lupa, Ayah selalu dukung kamu.' },
-    { sender: 'Mama', photo: 'assets/letters/mama.jpeg', subtitle: 'ADA TITIPAN DARI MAMA', text: 'Waktu begitu cepet berlalu ya Grace..doa dan harapan Ibu disetiap langkahmu selalu dilimpahi kesehatan, kesuksesan , keberuntungan dan keselamatan serta bermanfaat dimanapun kamu berada..Selamat ulangtahun  selamat mensyukuri pemyertaan  Tuhan Yesus..amin amin amin😘💝' },
+    { sender: 'Mama', photo: 'assets/letters/mama.jpeg', subtitle: 'ADA TITIPAN DARI MAMA', text: 'Waktu begitu cepet berlalu ya Grace..doa dan harapan Ibu disetiap langkahmu selalu dilimpahi kesehatan, kesuksesan , keberuntungan dan keselamatan serta memberi manfaat dimanapun kamu berada..Selamat ulangtahun  selamat mensyukuri pemyertaan  Tuhan Yesus..amin amin amin😘💝' },
     { sender: 'Kakak', photo: 'assets/letters/kakak.jpeg', subtitle: 'DARI TEMAN RIBUTMU', text: 'HBD, Gegehhh! Makin gede aja dah km. Semoga makin banyak hal seru yang kamu temuin tahun ini, dan satu-satu yang kamu pengenin bisa kesampaian. Just call me klo kamu butuh apa-apa yea, Enjoy your day! *pls ganti nama kontak WA ku huhu' },
     { sender: 'Eki', photo: 'assets/letters/eki.jpeg', subtitle: 'SATU LAGI, DARI EKI', text: 'Happy birthday, Gegeh! Semoga tahun ini banyak senengnya, banyak ketawanya, dan makin banyak cerita seru. Semoga yang lagi kamu tunggu-tunggu segera datang ya. Hari ini jangan lupa makan enak dan nikmatin kadonya!' },
   ],
@@ -73,7 +73,7 @@ function startGame(newVisit = false) {
   $('#pairs-count').textContent = '0';
   $('#moves-count').textContent = '0';
   $('#unlock-gift').classList.add('hidden');
-  $('#game-status').textContent = '✧ Sedikit rasa penasaran, banyak kejutan.';
+  $('#game-status').innerHTML = '<svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg> Sedikit rasa penasaran, banyak kejutan.';
   $('#memory-grid').replaceChildren();
   shuffle([...symbols, ...symbols]).forEach((symbol, index) => {
     const card = document.createElement('button');
@@ -106,7 +106,7 @@ function flipCard(card) {
     });
     game.pairs++;
     $('#pairs-count').textContent = game.pairs;
-    $('#game-status').textContent = ['','Satu bunga ketemu. Keep going! ✿','Dua pasang! Mulai jago nih.','Setengah jalan, Grace! ☀','Sedikit lagi kebuka kejutannya.','Satu pasangan terakhir! ✦','Yay, semua ketemu! Kejutanmu sudah siap. ✿'][game.pairs];
+    $('#game-status').innerHTML = ['','Satu bunga ketemu. Keep going! ✿','Dua pasang! Mulai jago nih.','Setengah jalan, Grace! ☀','Sedikit lagi kebuka kejutannya.','Satu pasangan terakhir! <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg>','Yay, semua ketemu! Kejutanmu sudah siap. ✿'][game.pairs];
     if (game.pairs === 6) {
       clearTimeout(game.skipTimer);
       $('#skip-game').classList.add('hidden');
@@ -196,7 +196,7 @@ CONFIG.flowers.forEach((flower, i) => {
   button.addEventListener('click', () => {
     document.querySelectorAll('.flower-hotspot').forEach((item) => item.classList.remove('active'));
     button.classList.add('active');
-    $('#bouquet-message').textContent = flower.message;
+    $('#bouquet-message').innerHTML = flower.message;
   });
   $('#flower-buttons').append(button);
 });
@@ -222,7 +222,8 @@ CONFIG.journey.forEach((item, index) => {
     const photo = new Image();
     photo.className = 'journey-real-photo';
     photo.alt = item.title;
-    photo.loading = 'lazy';
+    // This image is hidden until loaded; native lazy loading can stall it.
+    photo.loading = 'eager';
     photo.addEventListener('load', () => photoButton.classList.add('has-photo'));
     photo.addEventListener('error', () => photo.remove());
     photoButton.prepend(photo);
@@ -319,7 +320,7 @@ async function startMusic() {
     if (!music.context) {
       music.context = new (window.AudioContext || window.webkitAudioContext)();
       music.master = music.context.createGain();
-      music.master.gain.value = .35;
+      music.master.gain.value = .7;
       music.master.connect(music.context.destination);
     }
     await music.context.resume();
@@ -353,7 +354,7 @@ function celebrate(count = 75) {
   for (let i = 0; i < count; i++) {
     const piece = document.createElement('span');
     piece.className = 'confetti-piece';
-    piece.textContent = ['✿', '✦', '●', '❋'][i % 4];
+    piece.innerHTML = ['✿', '<svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg>', '●', '<svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg>'][i % 4];
     piece.style.left = `${Math.random() * 100}%`;
     piece.style.color = ['#e5c653', '#9ba97d', '#fff9e2', '#60794f'][i % 4];
     piece.style.setProperty('--duration', `${2.5 + Math.random() * 2}s`);
@@ -365,7 +366,7 @@ function celebrate(count = 75) {
 }
 $('#celebrate-btn').addEventListener('click', () => {
   celebrate();
-  openModal('<img class="modal-flower" src="assets/daisy.svg" alt="" /><span class="section-kicker">MAKE A WISH, GEGEH</span><h2>Happy birthday,<br /><em>Gegeh!</em></h2><p>Merem dulu sebentar, terus make a wish.<br />Yang banyak juga boleh kok, hehe.</p><p class="modal-signature">Psst... jangan ditutup dulu, ada sesuatu nih ✨</p>', $('#celebrate-btn'));
+  openModal('<img class="modal-flower" src="assets/daisy.svg" alt="" /><span class="section-kicker">MAKE A WISH, GEGEH</span><h2>Happy birthday,<br /><em>Gegeh!</em></h2><p>Merem dulu sebentar, terus make a wish.<br />Yang banyak juga boleh kok, hehe.</p><p class="modal-signature">Psst... jangan ditutup dulu, ada sesuatu nih <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg></p>', $('#celebrate-btn'));
   surpriseTimer = setTimeout(() => {
     if (!$('#detail-modal').open) return;
     renderTicket();
@@ -378,7 +379,7 @@ $('#celebrate-btn').addEventListener('click', () => {
 function renderTicket() {
   const ticket = CONFIG.surprise;
   $('#surprise-modal').classList.remove('second-gift');
-  $('#surprise-content').innerHTML = `<span class="section-kicker">SURPRISE 01 / A NIGHT TO REMEMBER</span><h2 id="surprise-title" tabindex="-1">Gegeh, kita <em>nonton yuk!</em></h2><p>Tadaaa! Udah dibeliin tiket konser buat kamu.<br />Ed Sheeran ketemu Coldplay, versi Candlelight ✨</p><div class="ticket-frame"><p class="ticket-image-status" role="status">Lagi buka gambar tiketnya…</p></div><a class="ticket-original hidden" target="_blank" rel="noopener">Lihat tiket ukuran penuh ↗</a><p class="ticket-note">Simpan tanggalnya ya. Siap-siap dengerin lagu favorit!</p><button id="next-surprise" class="primary-button">Psst... masih ada satu lagi <span>↗</span></button>`;
+  $('#surprise-content').innerHTML = `<span class="section-kicker">SURPRISE 01 / A NIGHT TO REMEMBER</span><h2 id="surprise-title" tabindex="-1">Ciee dapet <em>tiket konser</em></h2><p>Tadaaa! Udah dibeliin tiket konser dari Ibu buat kamu.<br />Semoga suka ya! nanti nonton sama aku + eki <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19" /></svg></p><div class="ticket-frame"><p class="ticket-image-status" role="status">Lagi buka gambar tiketnya…</p></div><a class="ticket-original hidden" target="_blank" rel="noopener">Lihat tiket ukuran penuh ↗</a><p class="ticket-note">Simpen tanggalnya ya. awas aja klo sibuk</p><button id="next-surprise" class="primary-button">Psst... masih ada satu lagi <span>↗</span></button>`;
   const frame = $('.ticket-frame');
   const originalLink = $('.ticket-original');
   const ticketImage = new Image();
@@ -401,7 +402,7 @@ function renderTicket() {
 
 function renderSecondGift() {
   $('#surprise-modal').classList.add('second-gift');
-  $('#surprise-content').innerHTML = `<span class="section-kicker">SURPRISE 02 / A LITTLE TREASURE HUNT</span><div class="closet-illustration" aria-hidden="true"><span>✿</span><i></i><b>for Gegeh</b></div><h2 id="surprise-title" tabindex="-1">Eh, belum <em>selesai!</em></h2><p>Masih ada hadiah kedua buat kamu, hehe.<br />Coba cek <strong>di dalam lemari kamar Gegeh</strong> ya!</p><p class="modal-signature">Selamat bongkar-bongkar. Happy birthday, geh! ✿</p><button id="back-to-ticket" class="text-button">← Lihat tiketnya lagi</button>`;
+  $('#surprise-content').innerHTML = `<span class="section-kicker">SURPRISE 02 / A LITTLE TREASURE HUNT</span><div class="closet-illustration" aria-hidden="true"><span>✿</span><i></i><b>for Gegeh</b></div><h2 id="surprise-title" tabindex="-1">Eh, belum <em>selesai!</em></h2><p>Masih ada hadiah kedua buat kamu, hehe.<br />Coba nanti cek <strong>di dalam lemari kamarmu ya</strong> ya!</p><p class="modal-signature">Selamat bongkar-bongkar. Happy birthday, geh! ✿</p><button id="back-to-ticket" class="text-button">← Lihat tiketnya lagi</button>`;
   $('#back-to-ticket').addEventListener('click', () => {
     renderTicket();
     $('#surprise-title').focus({ preventScroll: true });

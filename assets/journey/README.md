@@ -1,6 +1,6 @@
-# Koleksi milestone sebelumnya
+# Foto perjalanan Grace
 
-Foto aktif untuk bagian **03 / ONE LITTLE STEP AT A TIME** sekarang memakai `assets/Gegehh/`, sesuai `CONFIG.journey` di `../../script.js`. File dalam folder ini disimpan sebagai koleksi sebelumnya dan tidak digunakan oleh timeline saat ini.
+Kelima foto di folder ini digunakan pada bagian **03 / ONE LITTLE STEP AT A TIME**.
 
 Simpan 5 foto di folder ini, lalu isi `photo` pada `CONFIG.journey` di `../../script.js`:
 
