@@ -28,10 +28,10 @@ const CONFIG = {
   wishes: [
     // Isi ucapan keluarga bisa diperbarui lewat text masing-masing pengirim.
     // Foto keluarga disimpan di assets/letters/.
-    { sender: 'Ayah', photo: 'assets/letters/ayah.jpeg', subtitle: 'PESAN KECIL DARI AYAH', text: 'Selamat ulang tahun, Grace! Sehat selalu ya. Semoga apa yang lagi kamu usahakan dilancarkan, dan kamu makin berani mengejar yang kamu mau. Kalau capek, istirahat dulu. Jangan lupa, Ayah selalu dukung kamu.' },
+    { sender: 'Ayah', photo: 'assets/letters/ayah.jpeg', subtitle: 'PESAN KECIL DARI AYAH', text: 'Selamat ulang tahun, Grace! Sehat selalu..semoga apa yang sedang Grace usahakan dilancarkan, dan kamu semakin berani mengejar cita-citamu.Tuhan Yesus Memberkati.' },
     { sender: 'Mama', photo: 'assets/letters/mama.jpeg', subtitle: 'ADA TITIPAN DARI MAMA', text: 'Waktu begitu cepet berlalu ya Grace..doa dan harapan Ibu disetiap langkahmu selalu dilimpahi kesehatan, kesuksesan , keberuntungan dan keselamatan serta memberi manfaat dimanapun kamu berada..Selamat ulangtahun  selamat mensyukuri pemyertaan  Tuhan Yesus..amin amin amin😘💝' },
-    { sender: 'Kakak', photo: 'assets/letters/kakak.jpeg', subtitle: 'DARI TEMAN RIBUTMU', text: 'HBD, Gegehhh! Makin gede aja dah km. Semoga makin banyak hal seru yang kamu temuin tahun ini, dan satu-satu yang kamu pengenin bisa kesampaian. Just call me klo kamu butuh apa-apa yea, Enjoy your day! *pls ganti nama kontak WA ku huhu' },
-    { sender: 'Eki', photo: 'assets/letters/eki.jpeg', subtitle: 'SATU LAGI, DARI EKI', text: 'Happy birthday, Gegeh! Semoga tahun ini banyak senengnya, banyak ketawanya, dan makin banyak cerita seru. Semoga yang lagi kamu tunggu-tunggu segera datang ya. Hari ini jangan lupa makan enak dan nikmatin kadonya!' },
+    { sender: 'Kakak', photo: 'assets/letters/kakak.jpeg', subtitle: 'DARI TEMAN RIBUTMU', text: 'HBD, Gegehhh! Makin gede aja dah km. Semoga makin banyak hal seru yang kamu temuin tahun ini, dan satu-satu yang kamu pengenin bisa kesampaian. Just call me klo kamu butuh apa-apa yea, Enjoy your day and God Bless u! *pls ganti nama kontak WA ku huhu' },
+    { sender: 'Eki', photo: 'assets/letters/eki.jpeg', subtitle: 'SATU LAGI, DARI EKI', text: 'Happy birthday gegehh, semogaa kamu di umur yg dibaru ini bisa tetap menjadi gegeh yang baik dan ngober. God bless you gehh' },
   ],
   surprise: {
     ticketImage: 'assets/gifts/candlelight-ticket.png',
@@ -373,7 +373,7 @@ $('#celebrate-btn').addEventListener('click', () => {
     $('#surprise-modal').showModal();
     $('#surprise-title').focus({ preventScroll: true });
     celebrate(45);
-  }, 3000);
+  }, 5000);
 });
 
 function renderTicket() {

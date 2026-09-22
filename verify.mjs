@@ -84,6 +84,8 @@ try{
   await evaluate("document.querySelector('#celebrate-btn').click()");
   assert.equal(await evaluate("document.querySelector('#detail-modal').open"),true);
   await delay(3300);
+  assert.equal(await evaluate("document.querySelector('#surprise-modal').open"),false,'ticket must wait five seconds');
+  await delay(2000);
   assert.equal(await evaluate("document.querySelector('#surprise-modal').open"),true);
   await evaluate("document.querySelector('.ticket-frame img').decode()");
   assert.equal(await evaluate("document.querySelector('.ticket-frame img').naturalWidth"),2151);

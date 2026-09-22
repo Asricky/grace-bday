@@ -31,7 +31,7 @@ Bayangin membuka kado pelan-pelan: main sebentar, lihat bunga, buka kenangan, la
 | **Small moments, big memories** | Enam polaroid yang bisa dibuka lebih besar. |
 | **Look at you, growing** | Lima milestone, masing-masing dengan tempat foto. |
 | **A pocket full of good wishes** | Empat surat dari Ayah, Mama, Kakak, dan Eki, lengkap dengan foto. |
-| **Make a little wish** | Ucapan ulang tahun, lalu kejutan konser setelah 3 detik. Masih ada hadiah kedua! |
+| **Make a little wish** | Ucapan ulang tahun, lalu kejutan konser setelah 5 detik. Masih ada hadiah kedua! |
 
 Nuansanya **putih hangat, hijau sage, dan kuning daisy**. Dibuat untuk HP maupun desktop, dengan navigasi keyboard, tombol musik, dan dukungan *reduced motion*.
 
@@ -103,13 +103,13 @@ JPG, PNG, dan WebP bisa dipakai. Sesuaikan nama serta ekstensi di konfigurasi. J
 <details>
 <summary><strong>🎁 Spoiler: pengaturan kejutan terakhir</strong></summary>
 
-Klik **Make a little wish** → popup ucapan → tunggu **3 detik** → gambar tiket konser → tombol menuju petunjuk hadiah kedua di lemari kamar Gegeh.
+Klik **Make a little wish** → popup ucapan → tunggu **5 detik** → gambar tiket konser → tombol menuju petunjuk hadiah kedua di lemari kamar Gegeh.
 
 Gambar publik ada di **`assets/gifts/candlelight-ticket.png`**, sesuai `CONFIG.surprise.ticketImage`. Foto tiket menggunakan versi yang **ID tiket, QR, dan kode QR tertulisnya sudah disensor permanen**. Tautan ukuran penuh juga mengarah ke versi tersensor tersebut.
 
 Jika mengganti tiket, gunakan gambar yang sudah disensor. File tiket tanpa sensor disimpan terpisah dari project dan tidak dipublikasikan.
 
-Menutup popup ucapan sebelum 3 detik membatalkan kejutan otomatis; tombolnya bisa diklik lagi.
+Menutup popup ucapan sebelum 5 detik membatalkan kejutan otomatis; tombolnya bisa diklik lagi.
 
 </details>
 
