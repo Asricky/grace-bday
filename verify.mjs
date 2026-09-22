@@ -87,6 +87,11 @@ try{
   assert.equal(await evaluate("document.querySelector('#surprise-modal').open"),false,'ticket must wait five seconds');
   await delay(2000);
   assert.equal(await evaluate("document.querySelector('#surprise-modal').open"),true);
+  // The ticket is appended only after its network load completes.
+  for(let i=0;i<100;i++){
+    if(await evaluate("Boolean(document.querySelector('.ticket-frame img'))"))break;
+    await delay(100);
+  }
   await evaluate("document.querySelector('.ticket-frame img').decode()");
   assert.equal(await evaluate("document.querySelector('.ticket-frame img').naturalWidth"),2151);
   await screenshot('ticket-mobile');
